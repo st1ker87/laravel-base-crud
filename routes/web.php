@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainController@home')->name('pagina_home');
 
-Route::get('/dresses', 'MainController@dresses')->name('pagina-dresses');
+Route::resource('/dresses', 'DressController');

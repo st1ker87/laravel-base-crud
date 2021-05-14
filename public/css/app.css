@@ -1,0 +1,22 @@
+header {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.dresses_container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dress_card {
+    width: calc((100% / 3) - 20px);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.dress_card img {
+    max-height: 300px;
+}
