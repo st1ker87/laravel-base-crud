@@ -14,10 +14,10 @@ class MainController extends Controller
         
         $dresses = Dress::all();
 
-        $data = [
-            'dresses' => $dresses 
-        ];
+        // $data = [
+        //     'dresses' => $dresses 
+        // ];
 
-        return view('dresses', $data);
+        return view('dresses.index', compact('dresses'));
     }
 }

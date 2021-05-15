@@ -15,10 +15,10 @@ class DressController extends Controller
     public function index()
     {
         $dresses = Dress::all();
-        $data = [
-            'dresses'=> $dresses
-        ];
-        return view('dresses.index', $data);
+        // $data = [
+        //     'dresses'=> $dresses
+        // ];
+        return view('dresses.index', compact('dresses'));
     }
 
     /**
@@ -28,7 +28,7 @@ class DressController extends Controller
      */
     public function create()
     {
-        //
+        return view('dresses.add');
     }
 
     /**
@@ -39,7 +39,18 @@ class DressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $new_dress = new Dress();
+
+        $new_dress->name = $data['name'];
+        $new_dress->color = $data['color'];
+        $new_dress->size = $data['size'];
+        $new_dress->price = $data['price'];
+        $new_dress->description = $data['description'];
+        $new_dress->img_path = $data['img_path'];
+
+        $new_dress->save();
+        redirect()->route('dresses.index');
     }
 
     /**
@@ -48,10 +59,12 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Dress $dress)
     {
-        //
-        return($id);
+        if($dress) {
+            return view('dresses.show', compact('dress'));
+        }
+        abort(404);
     }
 
     /**
