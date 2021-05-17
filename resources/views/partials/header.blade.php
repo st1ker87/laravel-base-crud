@@ -1,14 +1,10 @@
 <header>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            <a class="navbar-brand" href="{{ route('pagina_home') }}">
-                Home Crud Shop
-            </a>
-            <a class="navbar-brand" href="{{ route('dresses.index') }}">
-                Vestiti
-            </a>
-            </div>
-        </div>
-    </nav>
+    <div class="header_container">
+        <a class="nav_brand" href="{{ route('pagina_home') }}">
+            <img src="{{asset('img/crud_logo.webp')}}" alt="">
+        </a>
+        <a class="nav_shop" href="{{ route('dresses.index') }}">
+            Shop-online
+        </a>
+    </div>
 </header>

@@ -1,23 +1,66 @@
-header {
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-.dresses_container {
+/* BUTTONS */
+
+
+/* HEADER */
+header {
+    height: 80px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+header .header_container {
     width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_container img {
+    max-height: 80px;
+}
+.header_container .nav_shop {
+    font-size: 1.6em;
+    font-weight: 800;
+    color: rgb(37, 86, 177);
+    text-decoration: none;
+    text-shadow: 2px 2px grey;
+}
+.header_container .nav_shop:hover {
+    transform: scale(1.2);
+    color: darkslateblue;
+}
+
+main {
+    background-color: lightgray;
+}
+
+/* DRESSES */
+.dresses_container {
+    width: 70%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .dress_card {
-    width: calc((100% / 3) - 20px);
+    /* width: calc((100% / 3) - 20px); */
+    flex-basis: 300px;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     overflow: hidden;
     text-align: center;
     margin: 10px;
+    background-color: white;
 }
-
 .dress_card img {
-    max-height: 300px;
+    max-height: 200px;
+}
+.dress_card img:hover {
+    transform: scale(1.2);
 }

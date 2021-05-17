@@ -9,15 +9,4 @@ class MainController extends Controller
     public function home(){
         return view('home');
     }
-
-    public function dresses(){
-        
-        $dresses = Dress::all();
-
-        // $data = [
-        //     'dresses' => $dresses 
-        // ];
-
-        return view('dresses.index', compact('dresses'));
-    }
 }

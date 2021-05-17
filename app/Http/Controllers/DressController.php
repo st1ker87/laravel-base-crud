@@ -42,15 +42,27 @@ class DressController extends Controller
         $data = $request->all();
         $new_dress = new Dress();
 
-        $new_dress->name = $data['name'];
+        $request->validate([
+            'name'=>'required|unique:dresses|max:255',
+            'color'=>'required|max:20',
+            'size'=>'required|max:4',
+            'description'=>'required',
+            'price'=>'required|numeric|max:5000',
+            'season'=>'required',
+            'img_path'=>'required'
+        ]);
+
+        $new_dress->fill($data);
+
+        /* $new_dress->name = $data['name'];
         $new_dress->color = $data['color'];
         $new_dress->size = $data['size'];
         $new_dress->price = $data['price'];
         $new_dress->description = $data['description'];
-        $new_dress->img_path = $data['img_path'];
+        $new_dress->img_path = $data['img_path']; */
 
         $new_dress->save();
-        redirect()->route('dresses.index');
+        return redirect()->route('dresses.index');
     }
 
     /**
@@ -73,9 +85,9 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dress $dress)
     {
-        //
+        return view('dresses.edit', compact('dress'));
     }
 
     /**
@@ -85,9 +97,12 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dress $dress)
     {
-        //
+        $data = $request->all();
+        $dress->update($data);
+        return redirect()->route('dresses.index');
+
     }
 
     /**
@@ -96,8 +111,9 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dress $dress)
     {
-        //
+        $dress->delete();
+        return redirect()->route('dresses.index');
     }
 }
