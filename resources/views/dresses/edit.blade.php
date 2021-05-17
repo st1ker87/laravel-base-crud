@@ -8,7 +8,7 @@
 
         <h2>Inserisci un nuovo prodotto:</h2>
 
-        <form action="{{route('dresses.update')}}" method="post">
+        <form action="{{route('dresses.update', $dress->id)}}" method="post">
             @csrf
             @method('PUT')
 
@@ -25,6 +25,15 @@
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{$dress -> name}}">
+            </div>
+            <div class="form-group">
+                <label for="brand">Brand</label>
+                <select name="brand" id="brand">
+                    <option value="">-- Seleziona --</option>
+                    <option value="nike" {{$dress->brand == 'nike' ? 'selected' :''}}>Nike</option>
+                    <option value="adidas" {{$dress->brand == 'adidas' ? 'selected' :''}}>Adidas</option>
+                    <option value="puma" {{$dress->brand == 'puma' ? 'selected' :''}}>Puma</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="color">color</label>

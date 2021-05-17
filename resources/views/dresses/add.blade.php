@@ -28,27 +28,36 @@
                 <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="form-group">
-                <label for="color">color</label>
+                <label for="brand">Brand</label>
+                <select name="brand" id="brand">
+                    <option value="">-- Seleziona --</option>
+                    <option value="nike">Nike</option>
+                    <option value="adidas">Adidas</option>
+                    <option value="puma">Puma</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="color">Color</label>
                 <input type="text" class="form-control" id="color" name="color">
             </div>
             <div class="form-group">
-                <label for="size">size</label>
+                <label for="size">Size</label>
                 <input type="text" class="form-control" id="size" name="size">
             </div>
             <div class="form-group">
-                <label for="description">description</label>
+                <label for="description">Description</label>
                 <input type="text" class="form-control" id="description" name="description">
             </div>
             <div class="form-group">
-                <label for="price">price</label>
+                <label for="price">Price</label>
                 <input type="number" class="form-control" id="price" name="price">
             </div>
             <div class="form-group">
-                <label for="season">season</label>
+                <label for="season">Season</label>
                 <input type="text" class="form-control" id="season" name="season">
             </div>
             <div class="form-group">
-                <label for="img_path">image link</label>
+                <label for="img_path">Image Link</label>
                 <input type="text" class="form-control" id="img_path" name="img_path">
             </div>
             <div class="form-group">
