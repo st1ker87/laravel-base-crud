@@ -3,5 +3,5 @@
 @section('title', 'Homepage')
     
 @section('content')
-    <h1>La mia Homepage</h1>
+    <img class="vetrina" src="{{asset('img/vetrina_home.jpeg')}}" alt="">
 @endsection

@@ -7,6 +7,20 @@ use App\Dress;
 
 class DressController extends Controller
 {
+
+    protected function valida(Request $request){
+        $request->validate([
+            'name' => 'required|unique:dresses|max:255',
+            'brand'=> 'required',
+            'color' => 'required|max:20',
+            'size' => 'required|max:4',
+            'description' => 'required',
+            'price' => 'required|numeric|max:5000',
+            'season' => 'required',
+            'img_path' => 'required'
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -42,15 +56,7 @@ class DressController extends Controller
         $data = $request->all();
         $new_dress = new Dress();
 
-        $request->validate([
-            'name'=>'required|unique:dresses|max:255',
-            'color'=>'required|max:20',
-            'size'=>'required|max:4',
-            'description'=>'required',
-            'price'=>'required|numeric|max:5000',
-            'season'=>'required',
-            'img_path'=>'required'
-        ]);
+        $this->valida($request);
 
         $new_dress->fill($data);
 
@@ -62,7 +68,7 @@ class DressController extends Controller
         $new_dress->img_path = $data['img_path']; */
 
         $new_dress->save();
-        return redirect()->route('dresses.index');
+        return redirect()->route('dresses.index')->with('status', 'Nuovo prodotto inserito correttamente!');
     }
 
     /**
@@ -101,7 +107,7 @@ class DressController extends Controller
     {
         $data = $request->all();
         $dress->update($data);
-        return redirect()->route('dresses.index');
+        return redirect()->route('dresses.index')->with('status', 'Prodotto modificato correttamente!');
 
     }
 
@@ -114,6 +120,6 @@ class DressController extends Controller
     public function destroy(Dress $dress)
     {
         $dress->delete();
-        return redirect()->route('dresses.index');
+        return redirect()->route('dresses.index')->with('status', 'Prodotto eliminato!');
     }
 }

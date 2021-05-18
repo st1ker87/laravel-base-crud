@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label for="brand">Brand</label>
-                <select name="brand" id="brand">
+                <select name="brand" id="brand" class="form-control" >
                     <option value="">-- Seleziona --</option>
                     <option value="nike" {{$dress->brand == 'nike' ? 'selected' :''}}>Nike</option>
                     <option value="adidas" {{$dress->brand == 'adidas' ? 'selected' :''}}>Adidas</option>

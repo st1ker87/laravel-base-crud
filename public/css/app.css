@@ -36,7 +36,13 @@ header .header_container {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh  - 80px);
     background-color: lightgray;
+    overflow-y: auto;
 }
 
 /* DRESSES */
@@ -46,6 +52,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    overflow-y: auto;
 }
 
 .dress_card {
@@ -63,4 +70,8 @@ main {
 }
 .dress_card img:hover {
     transform: scale(1.2);
+}
+
+.dress_show_container {
+    overflow-y: auto;
 }

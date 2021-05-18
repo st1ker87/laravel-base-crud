@@ -3,7 +3,13 @@
 @section('title', 'Homepage')
     
 @section('content')
-    <h1>La mia pagina vestiti</h1>
+    <h1>I nostri vestiti</h1>
+
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>  
+    @endif
 
     <a href="{{route('dresses.create')}}" class="btn btn-primary">Inserisci un prodotto</a>
 
